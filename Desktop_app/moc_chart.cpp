@@ -1,18 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'chart.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Desktop_app/chart.h"
+#include "chart.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'chart.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.1. It"
+#error "This file was generated using the moc from 5.12.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Chart_t {
-    QByteArrayData data[3];
-    char stringdata0[21];
+    QByteArrayData data[4];
+    char stringdata0[28];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,12 @@ struct qt_meta_stringdata_Chart_t {
 static const qt_meta_stringdata_Chart_t qt_meta_stringdata_Chart = {
     {
 QT_MOC_LITERAL(0, 0, 5), // "Chart"
-QT_MOC_LITERAL(1, 6, 13), // "handleTimeout"
-QT_MOC_LITERAL(2, 20, 0) // ""
+QT_MOC_LITERAL(1, 6, 12), // "handleUpdate"
+QT_MOC_LITERAL(2, 19, 0), // ""
+QT_MOC_LITERAL(3, 20, 7) // "payload"
 
     },
-    "Chart\0handleTimeout\0"
+    "Chart\0handleUpdate\0\0payload"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,10 +55,10 @@ static const uint qt_meta_data_Chart[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       1,    1,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::UChar,    3,
 
        0        // eod
 };
@@ -68,11 +69,10 @@ void Chart::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<Chart *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->handleTimeout(); break;
+        case 0: _t->handleUpdate((*reinterpret_cast< quint8(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Chart::staticMetaObject = { {

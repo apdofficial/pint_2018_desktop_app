@@ -15,11 +15,11 @@ class Chart: public QChart
 {
     Q_OBJECT
 public:
-    Chart(QGraphicsItem *parent = 0, Qt::WindowFlags wFlags = 0);
+    Chart(QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = 0);
     virtual ~Chart();
 
 public slots:
-    void handleTimeout();
+    void handleUpdate(quint8 payload);
 
 private:
     QTimer m_timer;

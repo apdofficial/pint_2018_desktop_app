@@ -7,18 +7,17 @@
 
 Chart::Chart(QGraphicsItem *parent, Qt::WindowFlags wFlags):
     QChart(QChart::ChartTypeCartesian, parent, wFlags),
-    m_series(0),
+    m_series(nullptr),
     m_axisX(new QValueAxis()),
     m_axisY(new QValueAxis()),
     m_step(0),
     m_x(5),
     m_y(1)
 {
-    QObject::connect(&m_timer, &QTimer::timeout, this, &Chart::handleTimeout);
     m_timer.setInterval(1000);
 
     m_series = new QSplineSeries(this);
-    QPen green(Qt::red);
+    QPen green(Qt::blue);
     green.setWidth(3);
     m_series->setPen(green);
     m_series->append(m_x, m_y);
@@ -31,9 +30,7 @@ Chart::Chart(QGraphicsItem *parent, Qt::WindowFlags wFlags):
     m_series->attachAxis(m_axisY);
     m_axisX->setTickCount(5);
     m_axisX->setRange(0, 10);
-    m_axisY->setRange(-5, 10);
-
-    m_timer.start();
+    m_axisY->setRange(-5, 120);
 }
 
 Chart::~Chart()
@@ -41,14 +38,14 @@ Chart::~Chart()
 
 }
 
-void Chart::handleTimeout()
+void Chart::handleUpdate(quint8 payload)
 {
     qreal x = plotArea().width() / m_axisX->tickCount();
     qreal y = (m_axisX->max() - m_axisX->min()) / m_axisX->tickCount();
     m_x += y;
-    m_y = QRandomGenerator::global()->bounded(5) - 2.5;
+    m_y = payload;
     m_series->append(m_x, m_y);
     scroll(x, 0);
-    if (m_x == 100)
-        m_timer.stop();
 }
+
+
